@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      onboarding_submissions: {
+        Row: {
+          address_data: Json
+          company_data: Json
+          company_name: string | null
+          contact_data: Json
+          created_at: string
+          id: string
+          selected_services: string[]
+          service_data: Json
+          status: Database["public"]["Enums"]["onboarding_status"]
+          submitted_at: string
+          updated_at: string
+        }
+        Insert: {
+          address_data?: Json
+          company_data?: Json
+          company_name?: string | null
+          contact_data?: Json
+          created_at?: string
+          id?: string
+          selected_services?: string[]
+          service_data?: Json
+          status?: Database["public"]["Enums"]["onboarding_status"]
+          submitted_at?: string
+          updated_at?: string
+        }
+        Update: {
+          address_data?: Json
+          company_data?: Json
+          company_name?: string | null
+          contact_data?: Json
+          created_at?: string
+          id?: string
+          selected_services?: string[]
+          service_data?: Json
+          status?: Database["public"]["Enums"]["onboarding_status"]
+          submitted_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       onboardings: {
         Row: {
           company_data: Json
