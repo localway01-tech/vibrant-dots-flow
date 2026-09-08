@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Aurora Palette
+
+enviei minha logo, pode colocar ela na cor preta se n estiver,  deixei o mais neutro possivel e so com alguns detalhes das cores,verde,azul,vermelho,amarelo, cores do google,  pode ser algumas bolinhas linhas movimendando, nada exagerado preciso que seja bem clean
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/5508cd1f-df00-4d06-b1b9-36b21262904d).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
