@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, CheckCircle2, Cloud, Loader2 } from "lucide-react";
 import logoAsset from "@/assets/logo-localway.png.asset.json";
 import { Button } from "@/components/ui/button";
-import { FieldGrid } from "@/components/onboarding/fields";
+import { FieldGrid, FieldRenderer } from "@/components/onboarding/fields";
 import { lookupCep } from "@/lib/masks";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -355,8 +355,7 @@ function Index() {
   );
 }
 
-function FieldGridSingle({ field, value, onChange, invalid }: { field: FieldDef; value: unknown; onChange: (v: unknown) => void; invalid?: boolean }) {
-  const { FieldRenderer } = require("@/components/onboarding/fields") as typeof import("@/components/onboarding/fields");
+function FieldGridSingle({ field, value, onChange, invalid }: { field: FieldDef; value: unknown; onChange: (v: unknown) => void; invalid: boolean }) {
   return <FieldRenderer field={field} value={value} onChange={onChange} invalid={invalid} />;
 }
 
