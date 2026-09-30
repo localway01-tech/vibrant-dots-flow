@@ -33,6 +33,7 @@ export const applyMask = (type: string, value: string) => {
   if (type === "cpf") return maskCPF(value);
   if (type === "cep") return maskCEP(value);
   if (type === "tel") return maskPhone(value);
+  if (type === "date") return maskDate(value);
   return value;
 };
 
@@ -56,3 +57,15 @@ export async function lookupCep(cep: string): Promise<CepResult | null> {
     return null;
   }
 }
+
+export const maskDate = (v: string) => {
+  const d = digits(v).slice(0, 8);
+  if (d.length > 4) return `${d.slice(0, 2)}/${d.slice(2, 4)}/${d.slice(4)}`;
+  if (d.length > 2) return `${d.slice(0, 2)}/${d.slice(2)}`;
+  return d;
+};
+
+export const maskTime = (v: string) => {
+  const d = digits(v).slice(0, 4);
+  return d.length > 2 ? `${d.slice(0, 2)}:${d.slice(2)}` : d;
+};
