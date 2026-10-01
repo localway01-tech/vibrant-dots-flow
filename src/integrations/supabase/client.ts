@@ -30,6 +30,11 @@ function cleanServiceData(selected: string[], serviceData: Record<string, Record
 }
 
 export const supabase = {
+  auth: {
+    async getSession() {
+      return { data: { session: null as null | { access_token: string } } };
+    },
+  },
   from(table: string) {
     return {
       async insert(row: SubmissionRow) {
