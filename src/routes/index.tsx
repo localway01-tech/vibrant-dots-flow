@@ -1,3 +1,4 @@
+import { SEGMENTS, segmentFields } from "@/lib/segments";
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, CheckCircle2, Cloud, Loader2 } from "lucide-react";
@@ -103,8 +104,14 @@ function Index() {
   const setService = (serviceId: string, id: string, value: unknown) =>
     setData((d) => ({ ...d, services: { ...d.services, [serviceId]: { ...(d.services[serviceId] ?? {}), [id]: value } } }));
 
+  const companyAll = useMemo<FieldDef[]>(() => {
+    const base = companyFields.map((f) => (f.id === "segment" ? { ...f, options: SEGMENTS } : f));
+    const i = base.findIndex((f) => f.id === "segment");
+    return [...base.slice(0, i + 1), ...segmentFields(data.company["segment"]), ...base.slice(i + 1)];
+  }, [data.company]);
+
   const currentFields = (): { fields: FieldDef[]; values: Values } => {
-    if (step.kind === "company") return { fields: companyFields, values: data.company };
+    if (step.kind === "company") return { fields: companyAll, values: data.company };
     if (step.kind === "address") return { fields: addressFields, values: data.address };
     if (step.kind === "contact") return { fields: contactFields, values: data.contact };
     if (step.kind === "service") return { fields: serviceById(step.id)?.fields ?? [], values: data.services[step.id] ?? {} };
@@ -256,7 +263,7 @@ function Index() {
       >
         {step.kind === "company" && (
           <Section eyebrow="Dados da empresa" title="Conte sobre a sua empresa" description="Estas informações são preenchidas uma única vez e reaproveitadas em todos os serviços.">
-            <FieldGrid fields={companyFields} values={data.company} invalidIds={invalidIds} onChange={(id, v) => setSection("company", id, v)} />
+            <FieldGrid fields={companyAll} values={data.company} invalidIds={invalidIds} onChange={(id, v) => setSection("company", id, v)} />
           </Section>
         )}
 

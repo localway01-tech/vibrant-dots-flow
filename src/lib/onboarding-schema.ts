@@ -43,7 +43,7 @@ export const companyFields: FieldDef[] = [
   { id: "trade_name", label: "Nome fantasia", required: true },
   { id: "legal_name", label: "Razão social", required: true },
   { id: "cnpj", label: "CNPJ", type: "cnpj", required: true },
-  { id: "segment", label: "Segmento", required: true },
+  { id: "segment", label: "Segmento", type: "radio", options: [], required: true, wide: true },
   { id: "description", label: "Descrição da empresa", type: "textarea", required: true, wide: true },
   { id: "founded_at", label: "Data de abertura", type: "date" },
   { id: "phone", label: "Telefone", type: "tel" },
